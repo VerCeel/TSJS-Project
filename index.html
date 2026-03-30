@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyBourse</title>
+    <script src="./src/main.ts" type="module"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <h1>MyBourse</h1>
+      <div class="nav-btn">
+        <button id="exportBtn">Exporter CSV</button>
+        <button id="btnsombre">🌙</button>
+      </div>
+    </nav>
+
+    <main>
+      <div class="select-section">
+        <div>
+          <select id="name1"></select>
+          <select id="name2"></select>
+        </div>
+        <div>
+          <label for="periode">Type de Chart:</label>
+          <select id="typeChart">
+            <option value="line">Ligne</option>
+            <option value="bar">Barres</option>
+          </select>
+
+          <!-- <button id="afficher">Afficher</button> -->
+
+          <label for="periode">Période:</label>
+          <select id="periode">
+            <option value="all">Toutes</option>
+            <option value="1jour">24h</option>
+            <option value="semaine">1 semaine</option>
+            <option value="mois">1 mois</option>
+            <option value="an">1 an</option>
+          </select>
+        </div>
+      </div>
+      <section id="apiSection">
+        <h2>Informations des actions sélectionnées</h2>
+        <div id="apiData"></div>
+      </section>
+
+      <div id="errorMessage" style="color: red"></div>
+      <div id="chartContainer">
+        <canvas id="lineCanvas" aria-label="chart"></canvas>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; HIRICH Oussama</p>
+    </footer>
+  </body>
+</html>
