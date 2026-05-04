@@ -4,6 +4,9 @@ import type { Stock } from "../models/stock.js";
 import { showError, clearError } from "../errors/errors.js";
 import { exportCSV } from "./exportcsv.js";
 
+// Download icon from lucide
+const downloadSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`;
+
 function formatPrice(value: number, currency: string): string {
   return new Intl.NumberFormat("fr-FR", {
     style: "currency",
@@ -139,6 +142,10 @@ export async function initUI() {
 
     // bouton export
     const exportBtn = document.getElementById("exportBtn") as HTMLButtonElement;
+    exportBtn.innerHTML = `${downloadSVG} Exporter CSV`;
+    exportBtn.style.display = "flex";
+    exportBtn.style.alignItems = "center";
+    exportBtn.style.gap = "0.5rem";
     exportBtn.addEventListener("click", () => {
       if (currentStock1 && currentStock2) {
         exportCSV(currentStock1, currentStock2);
